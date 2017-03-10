@@ -17,7 +17,7 @@ import edu.ycp.cs320.movethesquare.model.Game;
 import edu.ycp.cs320.movethesquare.model.Square;
 
 public class GameView extends JPanel {
-	private static final Color MIDNIGHT_BLUE = new Color(25, 25, 112);
+	private static final Color MIDNIGHT_RED = new Color(112, 25, 25);
 	
 	private Game model;
 	private GameController controller;
@@ -27,6 +27,7 @@ public class GameView extends JPanel {
 		this.model = model;
 		setPreferredSize(new Dimension((int) model.getWidth(), (int)model.getHeight()));
 		setBackground(Color.black);	//changed color of background
+
 
 		// djh2-KEC119-21: changed from 30 to 45
 		// djh2-YCPlaptop: change from 45 to 100
@@ -68,11 +69,15 @@ public class GameView extends JPanel {
 		
 		// djh2-KEC110-21: changed from GREEN to RED
 		// djh2-YCPlaptop: change from RED to YELLOW
+
 		g.setColor(Color.WHITE);	//Changed color of square
+
 
 		Square square = model.getSquare();
 		
-		g.fillOval((int) square.getX(), (int) square.getY(), (int) square.getWidth(), (int) square.getHeight());	//Changed to circle
+
+		g.fillOval((int) square.getX(), (int) square.getY(), (int) square.getWidth(), (int) square.getHeight());
+
 	}
 	
 	public static void main(String[] args) {
@@ -86,8 +91,10 @@ public class GameView extends JPanel {
 				Square square = new Square();
 				square.setX(300.0);
 				square.setY(220.0);
+
 				square.setWidth(60.0);		//Changed width of square
 				square.setHeight(60.0);		//Changed height of square
+
 				model.setSquare(square);
 				
 				GameController controller = new GameController();
