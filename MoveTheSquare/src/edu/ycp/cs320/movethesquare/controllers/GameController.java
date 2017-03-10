@@ -27,7 +27,7 @@ public class GameController {
 	}
 
 	public void moveSquare(Game model, Square square) {
-		square.setX(square.getX() + model.getSquareDx());
-		square.setY(square.getY() + model.getSquareDy());
+			square.setX(square.getX() + model.getSquareDx());
+			square.setY(square.getY() + model.getSquareDy());
 	}
 }

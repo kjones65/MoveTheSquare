@@ -26,11 +26,11 @@ public class GameView extends JPanel {
 	public GameView(Game model) {
 		this.model = model;
 		setPreferredSize(new Dimension((int) model.getWidth(), (int)model.getHeight()));
-		setBackground(MIDNIGHT_BLUE);
+		setBackground(Color.black);	//changed color of background
 
 		// djh2-KEC119-21: changed from 30 to 45
 		// djh2-YCPlaptop: change from 45 to 100
-		this.timer = new Timer(1000 / 100, new ActionListener() {
+		this.timer = new Timer(1000 / 500, new ActionListener() {		//Changed to make square faster
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -58,6 +58,8 @@ public class GameView extends JPanel {
 		}
 		controller.moveSquare(model, square);
 		repaint();
+		square.setX(model.getSquare().getX()-1);
+		square.setY(model.getSquare().getY()-1);
 	}
 	
 	@Override
@@ -66,11 +68,11 @@ public class GameView extends JPanel {
 		
 		// djh2-KEC110-21: changed from GREEN to RED
 		// djh2-YCPlaptop: change from RED to YELLOW
-		g.setColor(Color.YELLOW);
+		g.setColor(Color.WHITE);	//Changed color of square
 
 		Square square = model.getSquare();
 		
-		g.fillRect((int) square.getX(), (int) square.getY(), (int) square.getWidth(), (int) square.getHeight());
+		g.fillOval((int) square.getX(), (int) square.getY(), (int) square.getWidth(), (int) square.getHeight());	//Changed to circle
 	}
 	
 	public static void main(String[] args) {
@@ -84,8 +86,8 @@ public class GameView extends JPanel {
 				Square square = new Square();
 				square.setX(300.0);
 				square.setY(220.0);
-				square.setWidth(40.0);
-				square.setHeight(40.0);
+				square.setWidth(60.0);		//Changed width of square
+				square.setHeight(60.0);		//Changed height of square
 				model.setSquare(square);
 				
 				GameController controller = new GameController();
